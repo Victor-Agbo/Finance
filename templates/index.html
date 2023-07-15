@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+   <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Shares</th>
+        <th>Price</th>
+        <th>TOTAL</th>
+      </tr>
+  </thead>
+  <tbody>
+      {% for own in owned %}
+      <tr>
+        <td>{{ own['sym'] | upper}}</td>
+        <td>{{ own['name'] }}</td>
+        <td>{{ own['shares'] }}</td>        
+        <td>{{ own['price'] }}</td>
+        <td>{{ own['total'] }}</td>
+      </tr>
+      {% endfor %}
+  </tbody>
+  <thead></thead>
+  <tbody>
+      <tr>
+          <td></td><td></td><td></td>
+          <td><strong>Cash</strong></td>
+          <td>{{ cash }}</td>
+      </tr>
+      <tr>
+          <td></td><td></td><td></td>
+          <td><strong>TOTAL</strong></td>
+          <td>{{ TOTAL }}</td>
+      </tr>
+  </tbody>  
+ </table>
+    
+{% endblock %}
